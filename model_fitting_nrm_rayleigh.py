@@ -1,11 +1,3 @@
-## PIPPI CODE TO BE PROCESSED
-
-
-#### JIT2EMCEE_FIT_PACKAGE.py
-
-
-
-
 import os
 os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
@@ -297,8 +289,8 @@ def prior(theta):
 def make_star(model_params):
 
     stellar_object = geometric_star(model_params)
-    stellar_object.make_3D_model()
-    y_model_this = stellar_object.make_pol_diff_vis()
+    stellar_object.make_dust()
+    y_model_this = stellar_object.simulate_nrm()
 
     q_real_vis = stellar_object.ydata_real[0:153].copy()
     u_real_vis = stellar_object.ydata_real[153:153 * 2].copy()
@@ -949,8 +941,8 @@ for mod in range(0,1):#37, 38):
         discard = num_steps_discard_list[mod]
 
         stellar_object = geometric_star(model_params)
-        stellar_object.make_3D_model()
-        y_model_this = stellar_object.make_pol_diff_vis()
+        stellar_object.make_dust()
+        y_model_this = stellar_object.simulate_nrm()
 
 
 
@@ -1201,8 +1193,8 @@ for mod in range(0,1):#37, 38):
 
         print(model_params['dust_shape']) #model_class[mod]
         stellar_object = geometric_star(model_params)
-        stellar_object.make_3D_model()
-        y_model_this = stellar_object.make_pol_diff_vis()
+        stellar_object.make_dust()
+        y_model_this = stellar_object.simulate_nrm()
 
         np.save(save_dir + 'modelMLE_obs_{}.npy'.format(tag), stellar_object.y_model)
 
