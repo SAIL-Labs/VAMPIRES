@@ -1,23 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import pickle
-from JIT2make_3D_geom_stars_chem import geometric_star
+from make_dust_mie import geometric_star
 import corner
 import math
 import emcee
@@ -331,7 +313,7 @@ def make_star(model_params):
 
     stellar_object = geometric_star(model_params)
     stellar_object.make_3D_model()
-    y_model_this = stellar_object.make_pol_diff_vis()
+    y_model_this = stellar_object.simulate_nrm()
 
     # === Segment 1 ===
     q_real_vis_1 = stellar_object.ydata_real[0:153].copy()
@@ -1651,7 +1633,7 @@ for mod in [38]:
 
                 stellar_object = geometric_star(model_params)
                 stellar_object.make_3D_model()
-                y_model_this = stellar_object.make_pol_diff_vis()
+                y_model_this = stellar_object.simulate_nrm()
 
         
 
@@ -1700,7 +1682,7 @@ for mod in [38]:
 
                         stellar_object = geometric_star(model_params)
                         stellar_object.make_3D_model()
-                        model_params['ydata_real'] = stellar_object.make_pol_diff_vis() # whats this doing
+                        model_params['ydata_real'] = stellar_object.simulate_nrm() # whats this doing
 
 
                         sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob_model ,
@@ -1856,7 +1838,7 @@ for mod in [38]:
                 print(model_params['dust_shape'])  #model_class[mod]
                 stellar_object = geometric_star(model_params)
                 stellar_object.make_3D_model()
-                y_model_this = stellar_object.make_pol_diff_vis()
+                y_model_this = stellar_object.simulate_nrm()
 
 
                 Q_vals_real = onp.concatenate((stellar_object.ydata_real[0:153], stellar_object.ydata_real[153*2:153*2 + 816]), axis = 0)
