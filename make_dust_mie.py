@@ -1822,7 +1822,7 @@ class geometric_star():
 
 
 
-    def make_pol_diff_vis(self):
+    def simulate_nrm(self):#make_pol_diff_vis(self):
 
 
 
