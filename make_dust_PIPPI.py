@@ -1501,7 +1501,7 @@ class geometric_star():
 
 
 
-    def make_pol_diff_vis(self):
+    def simulate_nrm(self):#make_pol_diff_vis(self):
 
         self.size_biggest_baseline_m = self.wavelength / (self.pixel_ratio * 2 * self.mas_to_rad)
         self.image_size = len(self.V_diff)
