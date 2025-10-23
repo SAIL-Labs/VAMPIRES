@@ -13,7 +13,7 @@ print("jaxlib:", jaxlib.__version__)
 print("jax:", jax.__version__)
 
 import pickle
-from JIT2make_3D_geom_stars import geometric_star
+from make_dust import geometric_star
 import corner
 import math
 import emcee
