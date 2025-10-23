@@ -1,5 +1,4 @@
-
-from JIT2make_3D_geom_stars import geometric_star
+from make_dust import geometric_star
 import os
 import pylab as plt
 plt.ion()
@@ -310,7 +309,7 @@ model_param_ranges =   { 'a': [12, 200],
 
 stellar_object = geometric_star(model_params)
 stellar_object.make_3D_model()
-stellar_object.make_pol_diff_vis()
+stellar_object.simulate_nrm()
 
 plt.figure()
 tep = np.max(np.array([np.abs(np.min(stellar_object.image_Q)), np.abs(np.max(stellar_object.image_Q))]))
@@ -327,7 +326,7 @@ plt.savefig('test.pdf')
 #     time_start = time.time()
 #     stellar_object = geometric_star(model_params)
 #     stellar_object.make_3D_model()
-#     stellar_object.make_pol_diff_vis()
+#     stellar_object.simulate_nrm()
 #     time_stop = time.time()
 #
 #     print('Time to create model... {:.2f} seconds'.format(time_stop-time_start))
